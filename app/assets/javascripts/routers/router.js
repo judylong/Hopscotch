@@ -4,7 +4,12 @@ Hopscotch.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
+    "": "landing",
+  },
 
+  landing: function() {
+    var view = new Hopscotch.Views.Landing();
+    this._swapView(view);
   },
 
   _swapView: function(view) {
