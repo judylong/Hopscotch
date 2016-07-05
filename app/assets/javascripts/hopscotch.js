@@ -5,6 +5,7 @@ window.Hopscotch = {
   Routers: {},
   initialize: function() {
     this.router = new Hopscotch.Routers.Router({$rootEl: $('#main')});
+    Backbone.history.start();
   }
 };
 
