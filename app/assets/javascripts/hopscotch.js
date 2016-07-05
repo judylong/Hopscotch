@@ -4,7 +4,7 @@ window.Hopscotch = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    this.router = new Hopscotch.Routers.Router({$rootEl: $('#main')});
   }
 };
 
