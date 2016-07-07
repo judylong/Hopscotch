@@ -20,7 +20,9 @@ Hopscotch.Views.Note = Backbone.View.extend({
       this.editing = true;
       var content = JST['notes/edit']({model: this.model});
       this.$el.html(content);
-      $('textarea').focus();
+      var ta = $('textarea');
+      var val = ta.val();
+      ta.focus().val("").val(val);
     }
     return this;
   },
