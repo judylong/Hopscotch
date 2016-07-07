@@ -5,10 +5,18 @@ Hopscotch.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "landing",
+    "notesIndex":"notesIndex"
   },
 
   landing: function() {
     var view = new Hopscotch.Views.Landing();
+    this._swapView(view);
+  },
+
+  notesIndex: function() {
+    var notes = new Hopscotch.Collections.Notes();
+    notes.fetch({reset: true});
+    var view = new Hopscotch.Views.NotesIndex({collection: notes});
     this._swapView(view);
   },
 
