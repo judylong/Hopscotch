@@ -7,7 +7,6 @@ module Api
 
     def update
       @note = Note.find(params[:id])
-      debugger
       if @note.update_attributes(note_params)
         render json: @note
       else

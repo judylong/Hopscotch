@@ -4,14 +4,23 @@
   margin: 5px;
   padding: 5px;
   width: 200px;
-  height: 200px;
+  // height: 200px;
+  height: auto;
   display: inline-block;
   vertical-align: top;
+  // overflow-y: auto;
+  word-wrap: break-word;
+  p {
+    // word-break: break-all;
+    white-space: pre-wrap;
+  }
 }
 
 .note-edit {
   width: 200px;
   height: 200px;
+  // height: auto;
   opacity: .9;
   background: black;
+  overflow-y: auto;
 }
