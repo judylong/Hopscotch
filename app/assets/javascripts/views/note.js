@@ -11,11 +11,13 @@ Hopscotch.Views.Note = Backbone.View.extend({
   render: function() {
     var content = this.template({model: this.model});
     this.$el.html(content);
+    if (this.model.isNew()) {
+      this.editable();
+    }
     return this;
   },
   editable: function(e) {
-    e.preventDefault();
-    // debugger
+    e && e.preventDefault();
     if (this.editing === false) {
       this.editing = true;
       var content = JST['notes/edit']({model: this.model});
@@ -27,7 +29,6 @@ Hopscotch.Views.Note = Backbone.View.extend({
     return this;
   },
   updateNote: function(e) {
-    // debugger
     attr = e.currentTarget.value;
     this.model.save("words", attr, {
       success: function() {
