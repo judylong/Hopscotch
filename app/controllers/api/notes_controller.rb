@@ -23,6 +23,12 @@ module Api
       end
     end
 
+    def destroy
+      @note = Note.find(params[:id])
+      @note.destroy if @note
+      render json: {}
+    end
+
     private
     def note_params
       params.require(:note).permit(:words)

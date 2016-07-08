@@ -5,6 +5,7 @@ Hopscotch.Views.Note = Backbone.View.extend({
   template: JST['notes/indexItem'],
   className: "note",
   events: {
+    "click .delete-note": "deleteNote",
     "click": "editable",
     "blur textarea": "updateNote"
   },
@@ -18,7 +19,7 @@ Hopscotch.Views.Note = Backbone.View.extend({
   },
   editable: function(e) {
     e && e.preventDefault();
-    if (this.editing === false) {
+    if (this.editing === false && this.model) {
       this.editing = true;
       var content = JST['notes/edit']({model: this.model});
       this.$el.html(content);
@@ -36,5 +37,10 @@ Hopscotch.Views.Note = Backbone.View.extend({
         this.render();
       }.bind(this)
     });
+  },
+  deleteNote: function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    this.model.destroy();
   }
 });
