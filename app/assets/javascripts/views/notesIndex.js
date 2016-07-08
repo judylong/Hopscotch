@@ -6,8 +6,10 @@ Hopscotch.Views.NotesIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "remove", this.removeNote);
   },
   template: JST['notes/index'],
+  events: {
+    "click button.new-note": "newNote",
+  },
   render: function() {
-    // debugger
     var content = this.template({collection: this.collection});
     this.$el.html(content);
     this.attachSubviews();
@@ -19,5 +21,9 @@ Hopscotch.Views.NotesIndex = Backbone.CompositeView.extend({
   },
   removeNote: function(note) {
     this.removeModelSubview('.notes-index', note);
+  },
+  newNote: function() {
+    var newNote = new Hopscotch.Models.Note();
+    this.collection.add(newNote);
   }
 });
