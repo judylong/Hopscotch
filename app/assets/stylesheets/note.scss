@@ -12,9 +12,27 @@
   vertical-align: top;
   // overflow-y: auto;
   word-wrap: break-word;
+  position: relative;
   p {
     // word-break: break-all;
     white-space: pre-wrap;
+  }
+  &:hover {
+    .delete-note {
+      position: absolute;
+      display: block;
+      right: 5px;
+      top: 5px;
+      color: $red;
+      font-weight: 700;
+      background: black;
+      border-radius: 100%;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      cursor: pointer;
+      opacity: .7;
+    }
   }
 }
 
@@ -38,6 +56,11 @@
   // padding: 5px;
   font-size: 40px;
   right: 0;
-  bottom: 0;
+  top: 0;
   position: absolute;
+}
+
+.delete-note {
+  display: none;
+  // visibility: hidden;
 }
